@@ -235,6 +235,30 @@ client.on('message', message => {
     });
 
 
+    client.on('message', message => {
+      if(message.content.startsWith(prefix + "questionmen")){
+        redditFetch({
+          subreddit: 'Askmen', 
+          sort: "top",
+          allowedVideo: true, 
+          allowedNSFW: false,
+          allowedModPost: false,
+          allowCrossPost: false,
+        }).then(post => {
+            const embed = new MessageEmbed()
+              .setColor('#E91E63')
+              .setTitle(`${post.title}`)
+              .setURL(`${post.url}`)
+              .setColor('#dc77c1')
+              .setFooter("This question was posted by u/${post.author}")
+              .setTimestamp()
+              
+              message.channel.send(embed);
+          });
+        }
+      });
+  
+
 
 
 
