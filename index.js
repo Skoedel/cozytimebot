@@ -226,7 +226,7 @@ client.on('message', message => {
             .setTitle(`${post.title}`)
             .setURL(`${post.url}`)
             .setColor('#dc77c1')
-            .setFooter(`This question was posted by u/${post.author}`)
+            .setFooter("This question was posted by u/${post.author}")
             .setTimestamp()
             
             message.channel.send(embed);
