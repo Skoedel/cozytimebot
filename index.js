@@ -24,18 +24,16 @@ if (message.content.toLowerCase().startsWith(prefix + "zeg"))
 }
 }})
 
-
-if (msg.content.startsWith(prefix + 'avatar')) {
-  const user = msg.mentions.users.first() || msg.author;
-  const avatarEmbed = new MessageEmbed()
-    .setColor('')
-    .setAuthor(`${user.username}'s Avatar`)
-    .setImage(
-      `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`
-    );
-  msg.reply(avatarEmbed);
-  }
-
+client.on('message', message => {
+if (message.content.startsWith(config.prefix + 'avatar')) {
+  const user = message.mentions.users.first() || message.author;
+  const avatarEmbed = new Discord.RichEmbed()
+      .setColor(0x333333)
+      .setAuthor(user.username)
+      .setImage(user.avatarURL);
+  message.channel.send(avatarEmbed);
+}
+});
 
 client.on('message', message => {
   if(message.content.startsWith(prefix + "servers")){
