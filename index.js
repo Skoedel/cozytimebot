@@ -1,6 +1,7 @@
 const redditFetch = require('reddit-fetch');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const { Client, MessageEmbed } = require('discord.js')
 
 
 client.on('ready', () => {
