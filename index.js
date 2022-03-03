@@ -120,12 +120,12 @@ client.on('message', message => {
   .addFields(
     
 
-  { name: prefix+'joke', value: 'To get a random joke!' }, 
-  { name: prefix+'serverinfo', value: 'To get the server information!' }, 
+  { name: prefix+'joke', value: 'Om een grap te krijgen!' }, 
+  { name: prefix+'meme', value: 'Om een meme te krijgen!' }, 
   { name: prefix+'zeg', value: 'Om de bot een tekst te laten zeggen!' }, 
-  { name: prefix+'question', value: 'To get a random question!' }, 
-  { name: prefix+'news', value: 'To get a news article!' }, 
-  { name: prefix+'meme', value: 'To get a random meme!' }, 
+  { name: prefix+'question', value: 'Om een random vraag te krijgen' }, 
+  { name: prefix+'news', value: 'Om een (Engels) nieuws artikel te krijgen' }, 
+  { name: prefix+'serverinfo', value: 'Om de server informatie te krijgen' },
    )
     ;
   message.channel.send(embed);
@@ -153,10 +153,10 @@ client.on('message', message => {
       allowedVideo: true,
     }).then(post => {
         const embed = new MessageEmbed()
-          .setTitle('Here is a meme for ya!')
+          .setTitle('Hier is een meme voor je!')
           .setURL(`${post.url}`)
           .setColor('#dc77c1')
-          .setFooter(`This meme was posted by u/${post.author} in r/memes.`)
+          .setFooter(`Deze meme is gepost in r/memes door u/${post.author}.`)
           .setTimestamp()
           .setImage(`${post.url}`);
           
@@ -177,10 +177,10 @@ if(message.content.startsWith(prefix + "joke")){
   }).then(post => {
       const embed = new MessageEmbed()
         .setTitle(`${post.title}`)
-        .setURL(`${post.url}`)
         .setColor('#dc77c1')
         .setDescription(`||${post.selftext}||`)
-        .setFooter(`This joke was posted by u/${post.author} in r/jokes`)
+        .setFooter(`Deze grap is gepost in r/jokes door u/${post.author}.`)
+        .setURL(`${post.url}`)
         .setTimestamp()
         message.channel.send(embed);
     });
@@ -204,7 +204,7 @@ client.on('message', message => {
            .setURL(`${post.url}`)
            .setColor('#dc77c1')
            .setTimestamp()
-           .setFooter('Click on the title to read the article.')
+           .setFooter('Klik op de titel om het artikel te lezen.')
            message.channel.send(embed);
        });
      }
