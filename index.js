@@ -27,7 +27,7 @@ if (message.content.toLowerCase().startsWith(prefix + "zeg"))
 client.on('message', message => {
 if (message.content.startsWith(prefix + "avatar")) {
   const user = message.mentions.users.first() || message.author;
-  const avatarEmbed = new Discord.RichEmbed()
+  const embed = new MessageEmbed()
       .setColor("#663702")
       .setAuthor(user.username)
       .setImage(user.avatarURL);
