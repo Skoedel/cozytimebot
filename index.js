@@ -78,7 +78,23 @@ client.on('message', message => {
       })
   
 
-  
+      client.on('message', message => {
+        if(message.content.startsWith(prefix + "help")){
+           const embed = new MessageEmbed()
+         .setTitle('Hey, hier is een lijst van de commands die je kan gebruiken!')
+         .setColor('#663702')
+         .setTimestamp()
+         .addFields(
+           
+       
+         { name: prefix+'zeg', value: 'Om de bot een tekst te laten zeggen!' }, 
+         { name: prefix+'vraag', value: 'Om een random vraag te krijgen!' }, 
+         { name: prefix+'serverinfo', value: 'Om de server informatie te krijgen!' },
+          )
+           ;
+         message.channel.send(embed);
+         }
+           }); 
 
 
 
@@ -87,7 +103,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
- if(message.content.startsWith(prefix + "help", "commands")){
+ if(message.content.startsWith(prefix + "commands")){
     const embed = new MessageEmbed()
   .setTitle('Hey, hier is een lijst van de commands die je kan gebruiken!')
   .setColor('#663702')
