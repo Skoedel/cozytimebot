@@ -92,7 +92,7 @@ client.on('message', message => {
         if(message.content.startsWith(prefix + "socials")){
           const embed = new MessageEmbed()
             .setTitle("Hey, check my social media pages:")
-            .setColor('#dc77c1')
+            .setColor('#663702')
             .setTimestamp()
             .addFields(
 
@@ -115,7 +115,7 @@ client.on('message', message => {
  if(message.content.startsWith(prefix + "help", "commands")){
     const embed = new MessageEmbed()
   .setTitle('Hey, here is a list of all the commands you can use!')
-  .setColor('#dc77c1')
+  .setColor('#663702')
   .setTimestamp()
   .addFields(
     
@@ -123,9 +123,9 @@ client.on('message', message => {
   { name: prefix+'joke', value: 'Om een grap te krijgen!' }, 
   { name: prefix+'meme', value: 'Om een meme te krijgen!' }, 
   { name: prefix+'zeg', value: 'Om de bot een tekst te laten zeggen!' }, 
-  { name: prefix+'question', value: 'Om een random vraag te krijgen' }, 
-  { name: prefix+'news', value: 'Om een (Engels) nieuws artikel te krijgen' }, 
-  { name: prefix+'serverinfo', value: 'Om de server informatie te krijgen' },
+  { name: prefix+'question', value: 'Om een random vraag te krijgen!' }, 
+  { name: prefix+'news', value: 'Om een (Engels) nieuws artikel te krijgen!' }, 
+  { name: prefix+'serverinfo', value: 'Om de server informatie te krijgen!' },
    )
     ;
   message.channel.send(embed);
@@ -155,7 +155,7 @@ client.on('message', message => {
         const embed = new MessageEmbed()
           .setTitle('Hier is een meme voor je!')
           .setURL(`${post.url}`)
-          .setColor('#dc77c1')
+          .setColor('#663702')
           .setFooter(`Deze meme is gepost in r/memes door u/${post.author}.`)
           .setTimestamp()
           .setImage(`${post.url}`);
@@ -177,10 +177,10 @@ if(message.content.startsWith(prefix + "joke")){
   }).then(post => {
       const embed = new MessageEmbed()
         .setTitle(`${post.title}`)
-        .setColor('#dc77c1')
+        .setURL(`${post.url}`)
+        .setColor('#663702')
         .setDescription(`||${post.selftext}||`)
         .setFooter(`Deze grap is gepost in r/jokes door u/${post.author}.`)
-        .setURL(`${post.url}`)
         .setTimestamp()
         message.channel.send(embed);
     });
@@ -202,7 +202,7 @@ client.on('message', message => {
          const embed = new MessageEmbed()
            .setTitle(`${post.title}`)
            .setURL(`${post.url}`)
-           .setColor('#dc77c1')
+           .setColor('#663702')
            .setTimestamp()
            .setFooter('Klik op de titel om het artikel te lezen.')
            message.channel.send(embed);
@@ -222,7 +222,7 @@ client.on('message', message => {
         allowCrossPost: false,
       }).then(post => {
           const embed = new MessageEmbed()
-            .setColor('#E91E63')
+            .setColor('#663702')
             .setTitle(`${post.title}`)
             .setURL(`${post.url}`)
             .setColor('#dc77c1')
@@ -246,7 +246,7 @@ client.on('message', message => {
           allowCrossPost: false,
         }).then(post => {
             const embed = new MessageEmbed()
-              .setColor('#E91E63')
+              .setColor('#663702')
               .setTitle(`${post.title}`)
               .setURL(`${post.url}`)
               .setColor('#dc77c1')
