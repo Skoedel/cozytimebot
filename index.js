@@ -25,25 +25,16 @@ if (message.content.toLowerCase().startsWith(prefix + "zeg"))
 }})
 
 
-if(message.content.startsWith(prefix+'av')){
-    
-        
-  if(message.mentions.users.size){
-      let member=message.mentions.users.first()
-  if(member){
-      const emb=new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
-      message.channel.send(emb)
-      
+if (msg.content.startsWith(prefix + 'avatar')) {
+  const user = msg.mentions.users.first() || msg.author;
+  const avatarEmbed = new MessageEmbed()
+    .setColor('')
+    .setAuthor(`${user.username}'s Avatar`)
+    .setImage(
+      `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`
+    );
+  msg.reply(avatarEmbed);
   }
-  else{
-      message.channel.send("Sorry none found with that name")
-
-  }
-  }else{
-      const emb=new Discord.MessageEmbed().setImage(message.author.displayAvatarURL()).setTitle(message.author.username)
-      message.channel.send(emb)
-  }
-}
 
 
 client.on('message', message => {
