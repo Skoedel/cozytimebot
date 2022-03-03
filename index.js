@@ -115,9 +115,11 @@ client.on('message', message => {
     }); 
 
 
+     
 
 client.on('message', message => {
-if(message.content.startsWith("[POLL]")){
+  if (message.content.toLowerCase().startsWith(prefix + "[POLL]")) 
+  {
   let MSG = message.content.split(" ");
   let Query = MSG.slice(1).join("+");
   let QueryD = MSG.slice(1).join(" ");
