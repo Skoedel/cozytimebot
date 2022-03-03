@@ -10,7 +10,7 @@ Date
 const prefix = ",";
 
 client.on('message', message => {
-if (message.content.toLowerCase().startsWith(prefix + "say")) 
+if (message.content.toLowerCase().startsWith(prefix + "zeg")) 
  {
   let MSG = message.content.split(" ");
   let Query = MSG.slice(1).join("+");
@@ -93,16 +93,8 @@ client.on('message', message => {
           const embed = new MessageEmbed()
             .setTitle("Hey, check my social media pages:")
             .setColor('#663702')
-            .setTimestamp()
-            .addFields(
-
-              { name: 'Twitch', value: 'https://www.twitch.tv/pinkdogx/' }, 
-              { name: '\u200B', value: '\u200B' },
-              { name: 'Youtube', value: 'https://www.youtube.com/channel/UCIwuuvA1ogA1tufu6dDKIbg', inline: true },
-              { name: 'Instagram', value: 'https://www.instagram.com/PinkDog.tv/', inline: true },
-              { name: 'Discord', value: 'https://discord.com/invite/BeGDR3Y' },
-            )
-            ;
+            .setTimestamp();
+            
             message.channel.send(embed);
         }
       });      
@@ -120,11 +112,11 @@ client.on('message', message => {
   .addFields(
     
 
-  { name: prefix+'joke', value: 'Om een grap te krijgen!' }, 
+  { name: prefix+'grap', value: 'Om een grap te krijgen!' }, 
   { name: prefix+'meme', value: 'Om een meme te krijgen!' }, 
   { name: prefix+'zeg', value: 'Om de bot een tekst te laten zeggen!' }, 
-  { name: prefix+'question', value: 'Om een random vraag te krijgen!' }, 
-  { name: prefix+'news', value: 'Om een (Engels) nieuws artikel te krijgen!' }, 
+  { name: prefix+'vraag', value: 'Om een random vraag te krijgen!' }, 
+  { name: prefix+'nieuws', value: 'Om een (Engels) nieuws artikel te krijgen!' }, 
   { name: prefix+'serverinfo', value: 'Om de server informatie te krijgen!' },
    )
     ;
@@ -141,6 +133,9 @@ client.on('message', message => {
     });
 
 
+
+
+    
 
 client.on('message', message => {
   if(message.content.startsWith(prefix + "meme")){
@@ -167,7 +162,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-if(message.content.startsWith(prefix + "joke")){
+if(message.content.startsWith(prefix + "grap")){
   redditFetch({
     subreddit: 'Jokes', 
     sort: 'top',
@@ -191,7 +186,7 @@ if(message.content.startsWith(prefix + "joke")){
 const { Client, MessageEmbed } = require('discord.js')
 const redditFetch = require('reddit-fetch');
 client.on('message', message => {
-   if(message.content.startsWith(prefix + 'news')){
+   if(message.content.startsWith(prefix + 'nieuws')){
      redditFetch({
        subreddit: 'news', 
        sort: 'hot',
@@ -212,7 +207,7 @@ client.on('message', message => {
 
 
    client.on('message', message => {
-    if(message.content.startsWith(prefix + "question")){
+    if(message.content.startsWith(prefix + "vraag")){
       redditFetch({
         subreddit: 'AskReddit', 
         sort: "top",
@@ -225,9 +220,8 @@ client.on('message', message => {
             .setColor('#663702')
             .setTitle(`${post.title}`)
             .setURL(`${post.url}`)
-            .setTimestamp()
-            .setColor('#dc77c1')
             .setFooter(`Deze vraag was gepost in r/AskReddit door u/${post.author}`)
+            .setTimestamp()
             
             
             message.channel.send(embed);
