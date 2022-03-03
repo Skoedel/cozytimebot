@@ -118,7 +118,7 @@ client.on('message', message => {
      
 
 client.on('message', message => {
-  if (message.content.toLowerCase().startsWith(prefix + "[POLL]")) 
+  if (message.content.toLowerCase().startsWith("[POLL]")) 
   {
   let MSG = message.content.split(" ");
   let Query = MSG.slice(1).join("+");
@@ -135,16 +135,7 @@ client.on('message', message => {
 
 
 
-    client.on('message', message => {
-      if(message.content.startsWith(prefix + "socials")){
-        const embed = new MessageEmbed()
-          .setTitle("Hey, check my social media pages:")
-          .setColor('#663702')
-          .setTimestamp();
-          
-          message.channel.send(embed);
-      }
-    });      
+    
 
     
 
