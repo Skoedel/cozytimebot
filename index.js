@@ -204,7 +204,7 @@ client.on('message', message => {
            .setURL(`${post.url}`)
            .setColor('#663702')
            .setTimestamp()
-           .setFooter('Klik op de titel om het artikel te lezen.')
+           .setFooter(`Klik op de titel om het artikel te lezen.`)
            message.channel.send(embed);
        });
      }
@@ -225,40 +225,16 @@ client.on('message', message => {
             .setColor('#663702')
             .setTitle(`${post.title}`)
             .setURL(`${post.url}`)
-            .setColor('#dc77c1')
-            .setFooter("This question was posted by u/${post.author}")
             .setTimestamp()
+            .setColor('#dc77c1')
+            .setFooter(`Deze vraag was gepost in r/AskReddit door u/${post.author}`)
+            
             
             message.channel.send(embed);
         });
       }
     });
 
-
-    client.on('message', message => {
-      if(message.content.startsWith(prefix + "questionmen")){
-        redditFetch({
-          subreddit: 'Askmen', 
-          sort: "top",
-          allowedVideo: true, 
-          allowedNSFW: false,
-          allowedModPost: false,
-          allowCrossPost: false,
-        }).then(post => {
-            const embed = new MessageEmbed()
-              .setColor('#663702')
-              .setTitle(`${post.title}`)
-              .setURL(`${post.url}`)
-              .setTimestamp()
-              .setColor('#dc77c1')
-              .setFooter("This question was posted by u/${post.author}")
-              
-              
-              message.channel.send(embed);
-          });
-        }
-      });
-  
 
 
 
