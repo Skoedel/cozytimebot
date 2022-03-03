@@ -116,21 +116,14 @@ client.on('message', message => {
 
 
      
+    client.on('message', message => {
+      if(message.content.startsWith("[POLL]")){
+      message.react(":one:");
+      message.react(':two:');
+               
+      }
+      });
 
-client.on('message', message => {
-  if (message.content.toLowerCase().startsWith("[POLL]")) 
-  {
-  let MSG = message.content.split(" ");
-  let Query = MSG.slice(1).join("+");
-  let QueryD = MSG.slice(1).join(" ");
-  if (!Query) message.reply("Please specify something for me to say!")
-  else
-  {
-    message.channel.send(QueryD + " -" + "<@" + message.author.id + ">")
-    message.react("1️⃣");
-    message.react('2️⃣');
-}
-}})
 
 
 
