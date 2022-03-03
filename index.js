@@ -48,6 +48,7 @@ client.on('message', message => {
   
       const embed = new Discord.MessageEmbed()
         .setTitle(`Server information`)
+        .setColor('#663702')
         .setThumbnail(icon)
         .addFields(
           {
