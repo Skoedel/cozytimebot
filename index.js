@@ -118,8 +118,8 @@ client.on('message', message => {
      
     client.on('message', message => {
       if(message.content.startsWith("[POLL]")){
-      message.react(":one:");
-      message.react(':two:');
+      message.react(":1️⃣]:");
+      message.react(':2️⃣]:');
                
       }
       });
